@@ -33,4 +33,7 @@ describe('Card', function() {
         assert.equal(card.getFullName(), 'A♥');
         assert.equal(Card.toString(card), 'A♥');
     });
+    it('should render html', function () {
+        assert.equal(Card.toHtml(card), '<span class="card">A<span class="card-hearts">&hearts;</span></span>');
+    });
 });

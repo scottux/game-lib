@@ -27,4 +27,10 @@ describe('Hand', function() {
     it('should have an output method', function () {
         assert.equal(Hand.toString(hand), 'A♥');
     });
+
+    it('should render html', function () {
+        let html = '<div class="hand"><span class="card">A<span class="card-hearts">&hearts;</span></span></div>';
+
+        assert.equal(Hand.toHtml(hand), html);
+    });
 });
