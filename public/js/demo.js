@@ -9,7 +9,7 @@
     let Die = require('../../lib/die');
     let gameDie = new Die(6);
 
-    document.getElementById('coin-output').innerHTML = new Die(2).roll() % 2 ? 'Heads' : 'Tails';
+    document.getElementById('coin-output').innerHTML = require('../../demo/lib/coinFlip');
 
     document.getElementById('dice-output').innerHTML = gameDie.roll() +' and a '+ gameDie.roll();
 }());
