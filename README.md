@@ -50,6 +50,10 @@ Represents a polyhedron for use in various games.
 
 ## Demos
 
-`node index`
+`npm start` or `node index`
 
-`node demo/poker`
+This will run a local demo server that you can visit at http://localhost:3000 as well as run a quick demo in the console.
+
+`node demo/poker` or `npm run poker`
+
+This will run the same poker demo as in the browser, but using output for the console.

@@ -4,9 +4,9 @@
 let Poker = require('./lib/poker');
 
 // Play our game by defining who is playing, the game is set to log the winner automatically.
-Poker([
+console.log(Poker([
     'Player One',
     'Player Two',
     'Player Three',
     'Player Four'
-]);
+]));

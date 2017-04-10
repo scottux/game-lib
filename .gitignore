@@ -61,3 +61,4 @@ typings/
 .env
 
 
+/public/js/demo.min.js

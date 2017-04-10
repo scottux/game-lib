@@ -12,14 +12,16 @@ module.exports = Poker;
  * Defines a game of Poker.
  * @param {Array} [playerNames] Names of all the players.
  */
-function Poker(playerNames) {
+function Poker(playerNames, outputMethod) {
     playerNames = playerNames || [];
+    outputMethod = outputMethod || 'string';
     let players = playerNames.map(Player.fromName);
     let deck = new Deck();
 
     deck.shuffle();
     deal();
-    declareWinner();
+
+    return declareWinner();
 
     // Pass out cards to the Players, 5 for each.
     function deal() {
@@ -51,14 +53,21 @@ function Poker(playerNames) {
             let result = handChecker(hands, rule);
 
             if (result !== null) { // we have a winner
-                console.log(output(rule, result));
-                break;
+                return output(rule, result);
             }
         }
 
         // for logging
         function output(rule, result) {
-            return players[result].name + ' won! With a '+rule.name+'. Results: '+ hands.map(Hand.toString).join(' - ');
+            let string = players[result].name + ' won! With a '+rule.name+'.';
+
+            if (outputMethod === 'html') {
+                string = '<p>'+string+'</p><div class="hands">'+hands.map(Hand.toHtml).join('')+'</div>';
+            } else {
+                string = string+' Results: '+hands.map(Hand.toString).join(' - ');
+            }
+
+            return string;
         }
     }
 }
