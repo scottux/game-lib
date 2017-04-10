@@ -57,3 +57,7 @@ This will run a local demo server that you can visit at http://localhost:3000 as
 `node demo/poker` or `npm run poker`
 
 This will run the same poker demo as in the browser, but using output for the console.
+
+`node demo/coinFlip` or `npm run coin`
+
+This will run the same coin flip demo as in the browser.

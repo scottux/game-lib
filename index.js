@@ -26,4 +26,4 @@ console.log('Die Roll:', regularDie.roll());
 
 // Serve at port 3000
 server.listen(3000);
-console.log("Visit http://localhost:3000 for public demo. Or try: npm run poker");
+console.log("Visit http://localhost:3000 for public demo. Or try: npm run poker, or, npm run coin.");

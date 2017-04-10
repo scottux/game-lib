@@ -10,7 +10,8 @@
     "bundle": "browserify public/js/demo.js -t babelify --outfile public/js/demo.min.js",
     "test": "./node_modules/mocha/bin/mocha --require babel-register --recursive ./test",
     "start": "npm run bundle && node index",
-    "poker": "node demo/poker"
+    "poker": "node demo/poker",
+    "coin": "node demo/coinFlip"
   },
   "keywords": [
     "game",
