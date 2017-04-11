@@ -1,3 +1,11 @@
+body {
+    color: #444;
+    font: 100%/1.4 Arial, Helvetica, sans-serif;
+}
+
+table {
+    border-collapse: collapse;
+}
 .hand,
 .hands {
     margin-bottom: .5em;
@@ -5,23 +13,30 @@
 
 .card-hearts,
 .cards-diamonds {
-    color:red;
-}
-
-.hands {
-    border-bottom: 1px solid grey;
+    color: red;
 }
 
 .card {
     background: white;
     border-radius: 4px;
     box-shadow: 1px 2px 3px -2px rgba(0,0,0,.25),
-    inset 0 0 0 1px #e9e9e9,
-    inset 0 0 0 2px white,
-    inset 0 0 0 3px #dedeff;
+        inset 0 0 0 1px #e9e9e9,
+        inset 0 0 0 2px white,
+        inset 0 0 0 3px #dedeff;
     display: inline-block;
     font-family: monospace;
     padding: .33em;
-    width:3em;
-    height:4em;
+    width: 3em;
+    height: 4em;
+}
+
+.game-board td {
+    border: 1px solid grey;
+    color: lightgrey;
+    padding: 1em;
+    text-align: center;
+    vertical-align: middle;
+}
+.game-board .space-1-1 {
+    background: yellow;
 }

@@ -11,7 +11,8 @@
     "test": "./node_modules/mocha/bin/mocha --require babel-register --recursive ./test",
     "start": "npm run bundle && node index",
     "poker": "node demo/poker",
-    "coin": "node demo/coinFlip"
+    "coin": "node demo/coinFlip",
+    "snakesAndLadders": "node demo/snakesAndLadders"
   },
   "keywords": [
     "game",

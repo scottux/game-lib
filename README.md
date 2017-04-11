@@ -48,6 +48,22 @@ Represents a polyhedron for use in various games.
 - Sides: Number of sides for the polyhedron. 2 sides is a coin, 6 sides is a regular die, 20 for initiative
 - roll() Roll the die, flip the coin.
 
+### Board
+
+This is useful for creating board games. Goes good with Die and Player.
+
+- Grid: The Board is constructed with a width and height, x and y. This makes an array of rows(y) with arrays of cells(x)
+- getSpace() Returns the space defined at the provided coordinates
+
+### Space
+
+This is a spot in the Board's grid. It can have properties aside from these, as you need them (think lava tiles!).
+
+- X: The x coordinate of this space in the Board
+- Y: The y coordinate of this space in the Board.
+- onLanding(player) This function is called when a player lands on a space.
+- getOccupied() The list of players in this space. 
+
 ## Demos
 
 `npm start` or `node index`
@@ -61,3 +77,7 @@ This will run the same poker demo as in the browser, but using output for the co
 `node demo/coinFlip` or `npm run coin`
 
 This will run the same coin flip demo as in the browser.
+
+`node demo/snakesAndLadders` or `npm run snakesAndLadders`
+
+This will run a simple snakes and ladders-type grid game. Still early in dev.
