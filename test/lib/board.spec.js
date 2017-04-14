@@ -33,4 +33,48 @@ describe('Board', function() {
 
         assert.equal(Board.toHtml(board), '<table class="game-board"><tr><td class="space-1-1">1,1</td></tr></table>');
     });
+
+    it('should getNeighbors', function () {
+        let board = new Board(5,5);
+        let space = board.getSpace(2,2);
+
+        assert.equal(board.getNeighbors(space).n.y, 3);
+        assert.equal(board.getNeighbors(space).n.x, 2);
+
+        assert.equal(board.getNeighbors(space).s.y, 1);
+        assert.equal(board.getNeighbors(space).s.x, 2);
+
+        assert.equal(board.getNeighbors(space).e.y, 2);
+        assert.equal(board.getNeighbors(space).e.x, 3);
+
+        assert.equal(board.getNeighbors(space).w.y, 2);
+        assert.equal(board.getNeighbors(space).w.x, 1);
+
+        assert.equal(board.getNeighbors(space).ne.y, 3);
+        assert.equal(board.getNeighbors(space).ne.x, 3);
+
+        assert.equal(board.getNeighbors(space).nw.y, 3);
+        assert.equal(board.getNeighbors(space).nw.x, 1);
+
+        assert.equal(board.getNeighbors(space).sw.y, 1);
+        assert.equal(board.getNeighbors(space).sw.x, 1);
+
+        assert.equal(board.getNeighbors(space).se.y, 1);
+        assert.equal(board.getNeighbors(space).se.x, 3);
+    });
+
+    it('should getNeighbors', function () {
+        let board = new Board(5,5);
+        let space = board.getSpace(1,1);
+
+        assert.equal(board.getNeighbors(space).s, null);
+        assert.equal(board.getNeighbors(space).w, null);
+        assert.equal(board.getNeighbors(space).sw, null);
+        assert.equal(board.getNeighbors(space).se, null);
+        space = board.getSpace(5,5);
+        assert.equal(board.getNeighbors(space).n, null);
+        assert.equal(board.getNeighbors(space).e, null);
+        assert.equal(board.getNeighbors(space).nw, null);
+        assert.equal(board.getNeighbors(space).ne, null);
+    });
 });
