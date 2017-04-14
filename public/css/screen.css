@@ -41,16 +41,13 @@ table {
     background: yellow;
 }
 
-.into-the-nest .tile-wall,
-.into-the-nest .tile-floor,
-.into-the-nest .tile-door-closed,
-.into-the-nest .tile-door-open {
+.into-the-nest td {
     width: 1em;
     height: 1em;
 }
 
 .into-the-nest .tile-wall {
-    background:grey;
+    background: grey;
 }
 .into-the-nest .tile-floor,
 .into-the-nest .tile-door-open {

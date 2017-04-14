@@ -12,7 +12,8 @@
     "start": "npm run bundle && node index",
     "poker": "node demo/poker",
     "coin": "node demo/coinFlip",
-    "snakesAndLadders": "node demo/snakesAndLadders"
+    "snakesAndLadders": "node demo/snakesAndLadders",
+    "intoTheNest": "node demo/intoTheNest"
   },
   "keywords": [
     "game",
