@@ -4,7 +4,16 @@
 
 ### Card
 
-Represents a playing card.
+Represents a numbered card.
+
+- Number: The card's number.
+- toValue(card) Helpful in mappings.
+- toString(card) Helpful in output.
+- toHtml(card) Helpful in output.
+
+### Playing Card
+
+Represents a playing card. Extends Card.
 
 - Suit: Numeric representation of the card's suit. 1-4
 - Number: The card's number, 1-13
@@ -12,13 +21,14 @@ Represents a playing card.
 - Symbol: The symbol to use for display. &diams;, &hearts;, &spades;,&clubs;.
 - toValue(card) Helpful in mappings.
 - toString(card) Helpful in output.
+- toHtml(card) Helpful in output.
 - toSuit(card) Helpful in mappings.
 
 ### Deck
 
-Represents a deck of playing cards.
+Represents a deck of cards.
 
-- Cards: The deck is primarily a set of cards.
+- The deck is a collection of Card.
 - hit() Take the top card off the deck, to deal it out.
 - shuffle() Shuffle the deck, randomizes the card array.
 
@@ -35,9 +45,11 @@ Represents a player of the game.
 
 Represents a player's hand or a discard pile.
 
-- Cards: The set of cards in this hand.
+- The hand is a collection of Card.
+- addCard(card) If not over the limit, adds a card to the hand.
 - getSortedValues() Returns the values of the hand sorted low to high.
 - toString(hand) For output.
+- toHtml(hand) Helpful in output.
 
 ### Die
 
@@ -50,19 +62,20 @@ Represents a polyhedron for use in various games.
 
 ### Board
 
-This is useful for creating board games. Goes good with Die and Player.
+This is useful for creating board games. Goes well with Die and Player.
 
-- Grid: The Board is constructed with a width and height, x and y. This makes an array of rows(y) with arrays of cells(x)
-- getSpace() Returns the space defined at the provided coordinates
+- The Board is constructed with a width and height, x and y. This makes an array of rows(y) with arrays of cells(x).
+- getSpace(x,y) Returns the space defined at the provided coordinates.
+- toHtml(board) Helpful in output.
 
 ### Space
 
 This is a spot in the Board's grid. It can have properties aside from these, as you need them (think lava tiles!).
 
-- X: The x coordinate of this space in the Board
+- X: The x coordinate of this space in the Board.
 - Y: The y coordinate of this space in the Board.
+- Occupants: Player(s) in the space.
 - onLanding(player) This function is called when a player lands on a space.
-- getOccupied() The list of players in this space. 
 
 ## Demos
 
