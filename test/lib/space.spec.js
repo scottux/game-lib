@@ -21,6 +21,6 @@ describe('Space', function() {
     });
 
     it('should have a player occupying it', function () {
-        assert.deepEqual(space.getOccupied(), [{currentSpace: space}]);
+        assert.deepEqual(space.occupants, [{currentSpace: space}]);
     });
 });

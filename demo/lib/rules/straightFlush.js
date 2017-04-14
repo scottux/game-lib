@@ -2,7 +2,7 @@
 
 let isStraight = require('../checks/isStraight');
 let allAreEqual = require('../checks/allAreEqual');
-let Card = require('../../../lib/card');
+let Card = require('../../../lib/playingCard');
 
 module.exports = StraightFlush;
 
@@ -19,7 +19,7 @@ function StraightFlush(hand, highestValue) {
     highestValue = highestValue || 0;
 
     if (highValue > highestValue && isStraight(values)) {
-        const suits = hand.getCards().map(Card.toSuit);
+        const suits = hand.map(Card.toSuit);
 
         if (allAreEqual(suits)) { // Flush
             return {highestValue: highValue};

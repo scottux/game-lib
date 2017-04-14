@@ -14,8 +14,8 @@ describe('Board', function() {
     });
 
     it('should have a grid', function () {
-        assert.equal(board.grid.length, gridSize);
-        for (let row of board.grid) {
+        assert.equal(board.length, gridSize);
+        for (let row of board) {
             assert.equal(row.length, gridSize);
         }
     });

@@ -12,33 +12,39 @@ describe('Deck', function () {
         assert.instanceOf(deck, Deck);
     });
 
-    it('should get a cards array', function () {
-        assert.equal(deck.getCards().length, 52);
+    it('should be a cards array', function () {
+        assert.isArray(Object.getPrototypeOf(deck));
     });
 
     it('should shuffle the cards', function () {
-        let firstCardBefore = deck.getCards()[0];
         let firstCardAfter;
-        let fifthCardBefore = deck.getCards()[4];
         let fifthCardAfter;
+
+        for (let i = 0; i < 52; i++) {
+            deck.push(new Card(i));
+        }
+        let firstCardBefore = deck[0];
+        let fifthCardBefore = deck[4];
 
         deck.shuffle();
 
-        firstCardAfter = deck.getCards()[0];
-        fifthCardAfter = deck.getCards()[4];
+        firstCardAfter = deck[0];
+        fifthCardAfter = deck[4];
 
         // tiny chance that the shuffle will produce the card in the same spot, lessening that chance here.
         let isSame = fifthCardAfter.getFullName() === fifthCardBefore.getFullName() &&
             firstCardAfter.getFullName() === firstCardBefore.getFullName();
 
         assert.equal(isSame, false);
-        assert.equal(deck.getCards().length, 52);
+        assert.equal(deck.length, 52);
     });
 
     it('should hit you with a card', function () {
-        assert.equal(deck.getCards().length, 52);
+        deck = new Deck();
+        deck.push(new Card(1));
+        assert.equal(deck.length, 1);
         let card = deck.hit();
         assert.instanceOf(card, Card);
-        assert.equal(deck.getCards().length, 51);
+        assert.equal(deck.length, 0);
     });
 });

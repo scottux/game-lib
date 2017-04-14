@@ -1,21 +1,21 @@
 'use strict';
 
 const Hand = require('../../lib/hand');
-const Card = require('../../lib/card');
+const Card = require('../../lib/playingCard');
 const assert = require('chai').assert;
 
 describe('Hand', function() {
     let hand;
 
     it('should construct a hand properly', function () {
-        hand = new Hand();
+        hand = new Hand(5, Card);
         assert.instanceOf(hand, Hand);
     });
 
     it('should add and get a card', function () {
-        assert.equal(hand.getCards().length, 0);
+        assert.equal(hand.length, 0);
         hand.addCard(new Card(1,1));
-        assert.equal(hand.getCards().length, 1);
+        assert.equal(hand.length, 1);
     });
 
     it('should return an array of sorted values', function () {

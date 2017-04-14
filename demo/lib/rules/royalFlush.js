@@ -2,7 +2,7 @@
 
 let isStraight = require('../checks/isStraight');
 let allAreEqual = require('../checks/allAreEqual');
-let Card = require('../../../lib/card');
+let Card = require('../../../lib/playingCard');
 
 module.exports = RoyalFlush;
 
@@ -16,7 +16,7 @@ function RoyalFlush(hand) {
     const values = hand.getSortedValues();
 
     if (isStraight(values) && values[values.length - 1] === 14) { // Royal Straight
-        const suits = hand.getCards().map(Card.toSuit);
+        const suits = hand.map(Card.toSuit);
 
         if (allAreEqual(suits)) { // Flush
             return true;

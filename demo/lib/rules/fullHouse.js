@@ -2,7 +2,7 @@
 
 let tripleDouble = require('../checks/tripleDouble');
 
-module.exports =FullHouse;
+module.exports = FullHouse;
 
 /**
  * Rule for a full house.

@@ -1,7 +1,7 @@
 'use strict';
 
 let allAreEqual = require('../checks/allAreEqual');
-let Card = require('../../../lib/card');
+let Card = require('../../../lib/playingCard');
 
 module.exports = Flush;
 
@@ -12,7 +12,7 @@ module.exports = Flush;
  * @returns {Boolean}
  */
 function Flush(hand) {
-    const suits = hand.getCards().map(Card.toSuit);
+    const suits = hand.map(Card.toSuit);
 
     return allAreEqual(suits);
 }

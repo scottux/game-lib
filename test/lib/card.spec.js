@@ -7,33 +7,24 @@ describe('Card', function() {
     let card;
 
     it('should construct a card properly', function () {
-        card = new Card(1, 1); // Ace of Hearts
+        card = new Card(1);
         assert.instanceOf(card, Card);
     });
-    it('should get the symbol', function () {
-        card = new Card(1, 1); // Ace of Hearts
-        assert.equal(card.getSuit(), 'Hearts');
-        assert.equal(card.getSymbol(), '♥');
-    });
     it('should get the value', function () {
-        assert.equal(card.getValue(), 14);
-        assert.equal(Card.toValue(card), 14);
+        assert.equal(card.getValue(), 1);
+        assert.equal(Card.toValue(card), 1);
     });
     it('should get the number', function () {
         assert.equal(card.getNumber(), 1);
     });
-    it('should get the suit', function () {
-        assert.equal(card.getSuit(), 'Hearts');
-        assert.equal(Card.toSuit(card), 'Hearts');
-    });
     it('should get the name', function () {
-        assert.equal(card.getName(), 'A');
+        assert.equal(card.getName(), '#1');
     });
     it('should get the full name', function () {
-        assert.equal(card.getFullName(), 'A♥');
-        assert.equal(Card.toString(card), 'A♥');
+        assert.equal(card.getFullName(), 'Card #1');
+        assert.equal(Card.toString(card), 'Card #1');
     });
     it('should render html', function () {
-        assert.equal(Card.toHtml(card), '<span class="card">A<span class="card-hearts">&hearts;</span></span>');
+        assert.equal(Card.toHtml(card), '<span class="card">#1</span>');
     });
 });

@@ -2,4 +2,4 @@
 
 let board = require('./lib/snakesAndLadders');
 
-console.log(JSON.stringify(board.grid));
+console.log(JSON.stringify(board));
