@@ -3,7 +3,7 @@
 
     let Poker = require('../../demo/lib/poker');
     let SnakesAndLadders = require('../../demo/lib/snakesAndLadders');
-    let Room = require('../../demo/lib/intoTheNest/room');
+    let Map = require('../../demo/lib/intoTheNest/map');
     let IntoTheNest = require('../../demo/lib/intoTheNest');
     let Board = require('../../lib/board');
     let Die = require('../../lib/die');
@@ -14,5 +14,5 @@
     document.getElementById('dice-output').innerHTML = gameDie.roll() +' and a '+ gameDie.roll();
     document.getElementById('poker-output').innerHTML = Poker(players, 'html');
     document.getElementById('snakesAndLadders-output').innerHTML = Board.toHtml(SnakesAndLadders);
-    document.getElementById('intoTheNest-output').innerHTML = Room.toHtml(IntoTheNest);
+    document.getElementById('intoTheNest-output').innerHTML = Map.toHtml(IntoTheNest);
 }());

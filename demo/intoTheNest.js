@@ -1,6 +1,6 @@
 'use strict';
 
 const IntoTheNest = require('./lib/intoTheNest');
-const Room = require('./lib/intoTheNest/room');
+const Map = require('./lib/intoTheNest/map');
 
-console.log(Room.toString(IntoTheNest));
+console.log(Map.toString(IntoTheNest));

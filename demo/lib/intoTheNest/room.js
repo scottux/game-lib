@@ -3,14 +3,7 @@
 const randomNumber = require('../../../lib/utils/randomNumber');
 const Board = require('../../../lib/board');
 const Space = require('../../../lib/space');
-const TileTypes = {
-    Blank: '.',
-    DoorClosed: 'D',
-    DoorOpen: 'O',
-    Floor: '_',
-    Hallway: 'H',
-    Wall: '#'
-};
+const TileTypes = require('./tileTypes');
 
 let count = 0;
 
@@ -25,6 +18,7 @@ function Room(width, height, location) {
      * @type {Number}
      */
     let minHeight = 3;
+
     /**
      * Min width a room can have
      * @private
@@ -178,40 +172,40 @@ Room.prototype.isCornerTile = function (space) {
 /**
  * Prints a Room
  */
-Room.toString = function (room) {
-    let str = '';
-
-    for (let i = 1; i <= room.length; i++) {
-        for (let j = 1; j <= room[i-1].length; j++) {
-            str += room.getSpace(j,i).type + ' ';
-        }
-        str += "\r\n";
-    }
-
-    return str;
-};
+// Room.toString = function (room) {
+//     let str = '';
+//
+//     for (let i = 1; i <= room.length; i++) {
+//         for (let j = 1; j <= room[i-1].length; j++) {
+//             str += room.getSpace(j,i).type + ' ';
+//         }
+//         str += "\r\n";
+//     }
+//
+//     return str;
+// };
 
 /**
  * Prints a Room
  */
-Room.toHtml = function (room) {
-    let str = '<table class="into-the-nest">';
-
-    for (let i = 1; i <= room.length; i++) {
-        str += '<tr>';
-        for (let j = 1; j <= room[i-1].length; j++) {
-            let wallType = room.getSpace(j,i).type;
-            wallType = (wallType === '#') ? 'wall' : wallType;
-            wallType = (wallType === '_') ? 'floor' : wallType;
-            wallType = (wallType === 'D') ? 'door-closed' : wallType;
-            wallType = (wallType === 'O') ? 'door-open' : wallType;
-            str += '<td class="tile-'+wallType+'">&nbsp;</td>';
-        }
-        str += '</tr>';
-    }
-    str += '</table>';
-
-    return str;
-};
+// Room.toHtml = function (room) {
+//     let str = '<table class="into-the-nest">';
+//
+//     for (let i = 1; i <= room.length; i++) {
+//         str += '<tr>';
+//         for (let j = 1; j <= room[i-1].length; j++) {
+//             let wallType = room.getSpace(j,i).type;
+//             wallType = (wallType === '#') ? 'wall' : wallType;
+//             wallType = (wallType === '_') ? 'floor' : wallType;
+//             wallType = (wallType === 'D') ? 'door-closed' : wallType;
+//             wallType = (wallType === 'O') ? 'door-open' : wallType;
+//             str += '<td class="tile-'+wallType+'">&nbsp;</td>';
+//         }
+//         str += '</tr>';
+//     }
+//     str += '</table>';
+//
+//     return str;
+// };
 
 module.exports = Room;
