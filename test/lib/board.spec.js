@@ -77,4 +77,15 @@ describe('Board', function() {
         assert.equal(board.getNeighbors(space).nw, null);
         assert.equal(board.getNeighbors(space).ne, null);
     });
+
+    it('should get a random space', function () {
+        let board = new Board(5,5);
+        let space = board.getRandomSpace();
+
+        assert.instanceOf(space, Space);
+        assert.isAtLeast(space.x, 1);
+        assert.isAtLeast(space.y, 1);
+        assert.isAtMost(space.x, 5);
+        assert.isAtMost(space.y, 5);
+    });
 });
