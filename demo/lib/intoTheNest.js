@@ -1,6 +1,5 @@
 'use strict';
 
 const Map = require('./intoTheNest/map');
-const map = new Map();
 
-module.exports = map.getRandomMap();
+module.exports = new Map(25, 25);
