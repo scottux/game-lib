@@ -23,31 +23,50 @@ function Euchre(playerNames) {
     let deck = deckBuilder(Deck, PlayingCard, euchreDeck);
     setInitialDealer(players);
     deal(players, deck);
-    // remaining four cards after deal is referred to as a 'kitty'
+    // remaining four cards after deal is referred to as a 'kitty', but in this
+    // instance we are saying the kitty is the top card of that pile
     let kitty = deck[3];
     let firstPass = determineTrump(players, kitty);
+
     if (firstPass != -1) {
-        // dealerPickUp()
-        // setSuit(kitty)
+        trump = setTrump(kitty);
         //dealer picks up card, and discards another and trump is the suit of kitty
     } else {
-        // anotherDetermineTrumpFunction()
         // players have to call trump suit in clockwise order
-        for (let player of players) {
-            trump = findTrump(player);
-            if (trump != -1) {
-                trump = PlayingCard.getSuit(trump);
-                break;
-            }
-        };
-        console.log(trump);
+        trump = callTrump(players);
     }
-
-    // now that trump is defined, we play
+    // now that trump is defined, we play the game
 
     changeDealer(players);
 
     return ;
+}
+
+/**
+ * @param players
+ * @returns {number}
+ */
+function callTrump(players) {
+    let trump = -1;
+    for (let player of players) {
+        let trumpFound = findTrump(player, pickUp);
+        if (trumpFound != -1) {
+            trump = PlayingCard.getSuitValue(trumpFound);
+            break;
+        }
+    };
+    if (trump == -1) {
+        trump = PlayingCard.getSuitValue(Math.floor(Math.random() * (3 - 0 + 1)) + 0);
+    }
+
+    return trump;
+}
+
+/**
+ * @param card
+ */
+function setTrump(card) {
+    return PlayingCard.getSuitValue(card.suit -1);
 }
 
 /**
@@ -114,13 +133,16 @@ function determineTrump(players, card) {
     return matchCount.findIndex(pickUp);
 }
 
-function findTrump(player) {
+/**
+ * -1 If not found, otherwise index in array that passes pickUp
+ * @param player
+ * @returns {number}
+ */
+function findTrump(player, callable) {
     let suitArray = findSuitCount(player);
-    return suitArray.findIndex(pickUp);
+    return suitArray.findIndex(callable);
 
 }
-
-
 
 /**
  * @param count
@@ -133,7 +155,8 @@ function pickUp(suitCount) {
 /**
  * returns an array where key is the suit and number is the quantity
  * (0 is Hearts, 1 is Clubs, 2 is Spades, 3 is Diamonds)
- * @param array hand
+ * @param {Array} hand
+ * @return {Array} suits
  */
 function findSuitCount(playerHand) {
     let suits = [0,0,0,0];
