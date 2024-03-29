@@ -1,6 +1,6 @@
 'use strict';
 
-const HighCard = require('../../../../demo/lib/rules/HighCard');
+const HighCard = require('../../../../demo/lib/rules/highCard');
 const Hand = require('../../../../lib/hand');
 const Card = require('../../../../lib/playingCard');
 

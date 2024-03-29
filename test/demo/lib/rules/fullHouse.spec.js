@@ -1,7 +1,7 @@
 'use strict';
 
 const FullHouse = require('../../../../demo/lib/rules/fullHouse');
-const Hand = require('../../../../lib/Hand');
+const Hand = require('../../../../lib/hand');
 const Card = require('../../../../lib/playingCard');
 
 const assert = require('chai').assert;

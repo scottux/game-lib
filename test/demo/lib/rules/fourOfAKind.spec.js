@@ -1,7 +1,7 @@
 'use strict';
 
 const FourOfAKind = require('../../../../demo/lib/rules/fourOfAKind');
-const Hand = require('../../../../lib/Hand');
+const Hand = require('../../../../lib/hand');
 const Card = require('../../../../lib/playingCard');
 
 const assert = require('chai').assert;
